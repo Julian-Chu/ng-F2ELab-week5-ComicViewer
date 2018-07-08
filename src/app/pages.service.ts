@@ -8,13 +8,13 @@ export class PagesService {
 
   getPages(): Page[] {
     return [
-      new Page(1, "../../assets/storyboard-1.png"),
-      new Page(2, "../../assets/storyboard-2.png"),
-      new Page(3, "../../assets/storyboard-3.png"),
-      new Page(4, "../../assets/storyboard-4.png"),
-      new Page(5, "../../assets/storyboard-5.png"),
-      new Page(6, "../../assets/storyboard-6.png"),
-      new Page(7, "../../assets/storyboard-7.png")
+      new Page(1, "./assets/storyboard-1.png"),
+      new Page(2, "./assets/storyboard-2.png"),
+      new Page(3, "./assets/storyboard-3.png"),
+      new Page(4, "./assets/storyboard-4.png"),
+      new Page(5, "./assets/storyboard-5.png"),
+      new Page(6, "./assets/storyboard-6.png"),
+      new Page(7, "./assets/storyboard-7.png")
     ];
   }
 }
