@@ -10,9 +10,6 @@
         <i class="fas fa-caret-down"></i>
         <select name="chapters" id="">
           <option value="1">Chapter1</option>
-          <option value="2">Chapter2</option>
-          <option value="3">Chapter3</option>
-          <option value="4">Chapter4</option>
         </select>
       </div>
       <div class="number-updown">
@@ -21,8 +18,8 @@
         </b>
         <i class="fas fa-caret-up"></i>
         <i class="fas fa-caret-down"></i>
-        <select name="pages" id="">
-          <option *ngFor="let page of pages" value="page.pageNumber">Page{{page.pageNumber}}</option>
+        <select (change)="onChange(pageSelect)" #pageSelect>
+          <option *ngFor="let page of pages" [value]="page.pageNumber" [selected]="page.pageNumber === currentPageNo">Page{{page.pageNumber}}</option>
         </select>
       </div>
 

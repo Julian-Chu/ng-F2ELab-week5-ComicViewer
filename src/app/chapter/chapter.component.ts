@@ -1,6 +1,5 @@
 import { PagesService, Page } from "./../pages.service";
 import { Component, OnInit } from "@angular/core";
-import { TouchSequence } from "selenium-webdriver";
 
 @Component({
   selector: "app-chapter",
@@ -28,5 +27,9 @@ export class ChapterComponent implements OnInit {
       return;
     }
     this.currentPageNo -= 1;
+  }
+
+  onChange(el: HTMLSelectElement) {
+    this.currentPageNo = parseInt(el.value, 10);
   }
 }
