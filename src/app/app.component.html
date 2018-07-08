@@ -1,9 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<header class="Logo">
-  Comicomic
-</header>
-<router-outlet></router-outlet>
-<footer class="advertise">
-  <img src="./assets/material-ad-2.png" alt="">
+<div class="body-container" [ngClass]="{'dark': darkMode}">
+  <header class="Logo" [ngClass]="{'dark': darkMode}">
+    Comicomic
+  </header>
+  <router-outlet></router-outlet>
+  <footer class="advertise">
+    <img src="./assets/material-ad-2.png" alt="">
 
-</footer>
+  </footer>
+</div>

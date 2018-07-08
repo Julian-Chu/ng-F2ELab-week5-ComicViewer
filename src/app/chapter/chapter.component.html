@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [ngClass]="{'dark': darkMode}">
   <div class="status">
     <div class="status-left Title3">
       <a [routerLink]="['']">My Hexschool
@@ -25,7 +25,7 @@
 
     </div>
     <div class="status-right">
-      <div class="switch">
+      <div class="switch" (click)="toggleDarkMode()">
         <div></div>
       </div>
 

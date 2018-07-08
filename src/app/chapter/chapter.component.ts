@@ -1,3 +1,4 @@
+import { DarkmodeService } from "./../darkmode.service";
 import { PagesService, Page } from "./../pages.service";
 import { Component, OnInit } from "@angular/core";
 
@@ -9,10 +10,18 @@ import { Component, OnInit } from "@angular/core";
 export class ChapterComponent implements OnInit {
   pages: Page[];
   currentPageNo: number;
-  ngOnInit(): void {}
-  constructor(pagesService: PagesService) {
+  darkMode: boolean;
+  constructor(
+    pagesService: PagesService,
+    private darkModeService: DarkmodeService
+  ) {
     this.pages = pagesService.getPages();
     this.currentPageNo = 1;
+  }
+  ngOnInit(): void {
+    this.darkModeService.isDarkMode.subscribe(
+      enableDarkMode => (this.darkMode = enableDarkMode)
+    );
   }
 
   nextPage() {
@@ -35,5 +44,9 @@ export class ChapterComponent implements OnInit {
 
   onChange(el: HTMLSelectElement) {
     this.currentPageNo = parseInt(el.value, 10);
+  }
+
+  toggleDarkMode() {
+    this.darkModeService.toggleDarkMode(!this.darkMode);
   }
 }
