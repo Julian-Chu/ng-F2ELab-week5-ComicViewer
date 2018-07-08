@@ -53,8 +53,11 @@ export class ChapterComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked() {
     const id = "page" + this.currentPageNo;
-    console.log(id);
     const thumbnail = document.getElementById(id);
-    thumbnail.scrollIntoView(false);
+    const thumbnailsContainer: HTMLElement = document.querySelector(
+      ".thumbnails"
+    );
+    const distToScroll = thumbnail.offsetLeft - thumbnailsContainer.offsetLeft;
+    thumbnailsContainer.scrollLeft = distToScroll - 60 * this.currentPageNo;
   }
 }
