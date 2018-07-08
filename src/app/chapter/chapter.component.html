@@ -51,7 +51,7 @@
     <div class="thumbnails">
       <div class="thumbnail"></div>
       <ng-container *ngFor="let page of pages; let i=index">
-        <div class="thumbnail" [ngClass]="{'current-page': page.pageNumber === currentPageNo}" (click)="jumpToPage(page.pageNumber)">
+        <div class="thumbnail" id="page{{page.pageNumber}}" [ngClass]="{'current-page': page.pageNumber === currentPageNo}" (click)="jumpToPage($event,page.pageNumber); $event.stopPropagation()">
           <b *ngIf="page.pageNumber !== currentPageNo">{{page.pageNumber}}</b>
           <img src='{{page.pageImageLink}}' alt="">
         </div>

@@ -1,13 +1,13 @@
 import { DarkmodeService } from "./../darkmode.service";
 import { PagesService, Page } from "./../pages.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, AfterViewChecked } from "@angular/core";
 
 @Component({
   selector: "app-chapter",
   templateUrl: "./chapter.component.html",
   styleUrls: ["./chapter.component.css"]
 })
-export class ChapterComponent implements OnInit {
+export class ChapterComponent implements OnInit, AfterViewChecked {
   pages: Page[];
   currentPageNo: number;
   darkMode: boolean;
@@ -38,8 +38,9 @@ export class ChapterComponent implements OnInit {
     this.currentPageNo -= 1;
   }
 
-  jumpToPage(pageNo: number) {
+  jumpToPage(event: MouseEvent, pageNo: number) {
     this.currentPageNo = pageNo;
+    console.log(event);
   }
 
   onChange(el: HTMLSelectElement) {
@@ -48,5 +49,12 @@ export class ChapterComponent implements OnInit {
 
   toggleDarkMode() {
     this.darkModeService.toggleDarkMode(!this.darkMode);
+  }
+
+  ngAfterViewChecked() {
+    const id = "page" + this.currentPageNo;
+    console.log(id);
+    const thumbnail = document.getElementById(id);
+    thumbnail.scrollIntoView(false);
   }
 }
