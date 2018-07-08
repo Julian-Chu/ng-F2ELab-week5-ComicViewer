@@ -35,7 +35,7 @@
     </div>
 
   </div>
-  <div class="previous-page">
+  <div class="previous-page" (click)="previousPage()" [style.visibility]="currentPageNo === 1? 'hidden':'visible'">
     <i class="fas fa-less-than"></i>
   </div>
   <div class="comic-image">
@@ -43,7 +43,7 @@
   </div>
 
 
-  <div class="next-page">
+  <div class="next-page" (click)="nextPage()" [style.visibility]="currentPageNo === pages.length? 'hidden':'visible'">
     <i class="fas fa-greater-than"></i>
   </div>
   <div class="thumbnail-bar">
