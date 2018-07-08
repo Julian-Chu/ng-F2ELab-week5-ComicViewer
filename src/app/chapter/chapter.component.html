@@ -17,21 +17,12 @@
       </div>
       <div class="number-updown">
         <b>
-          Page 09
+          Page {{currentPageNo}}
         </b>
         <i class="fas fa-caret-up"></i>
         <i class="fas fa-caret-down"></i>
         <select name="pages" id="">
-          <option value="1">Page1</option>
-          <option value="2">Page2</option>
-          <option value="3">Page3</option>
-          <option value="4">Page4</option>
-          <option value="5">Page5</option>
-          <option value="6">Page6</option>
-          <option value="7">Page7</option>
-          <option value="8">Page8</option>
-          <option value="9">Page9</option>
-          <option value="10">Page10</option>
+          <option *ngFor="let page of pages" value="page.pageNumber">Page{{page.pageNumber}}</option>
         </select>
       </div>
 
@@ -48,7 +39,7 @@
     <i class="fas fa-less-than"></i>
   </div>
   <div class="comic-image">
-    <img src="../../assets/storyboard-1.png" alt="">
+    <img src='{{pages[currentPageNo-1].pageImageLink}}' alt="">
   </div>
 
 
@@ -63,8 +54,8 @@
     <div class="thumbnails">
       <div class="thumbnail"></div>
       <ng-container *ngFor="let page of pages; let i=index">
-        <div class="thumbnail" [ngClass]="{'current-page': page.pageNumber === currentPage.pageNumber}">
-          <b *ngIf="page.pageNumber !== currentPage.pageNumber">{{page.pageNumber}}</b>
+        <div class="thumbnail" [ngClass]="{'current-page': page.pageNumber === currentPageNo}">
+          <b *ngIf="page.pageNumber !== currentPageNo">{{page.pageNumber}}</b>
           <img src='{{page.pageImageLink}}' alt="">
         </div>
       </ng-container>
