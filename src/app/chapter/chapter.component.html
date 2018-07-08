@@ -62,43 +62,18 @@
 
     <div class="thumbnails">
       <div class="thumbnail"></div>
-      <div class="thumbnail"></div>
-      <div class="thumbnail"></div>
+
       <div class="thumbnail current-page">
 
         <i lass="fas fa-sort-up"></i>
 
         <img src="../../assets/storyboard-1.png" alt="">
       </div>
-      <div class="thumbnail">
-        <b>2</b>
-        <img src="../../assets/storyboard-2.png" alt="">
+      <div *ngFor="let page of pages; let i=index" class="thumbnail">
+        <b>{{page.pageNumber}}</b>
+        <img src='{{page.pageImageLink}}' alt="">
       </div>
-      <div class="thumbnail">
-        <b>3</b>
-        <img src="../../assets/storyboard-3.png" alt="">
-
-      </div>
-      <div class="thumbnail">
-        <b>4</b>
-        <img src="../../assets/storyboard-4.png" alt="">
-
-      </div>
-      <div class="thumbnail">
-        <b>5</b>
-        <img src="../../assets/storyboard-5.png" alt="">
-
-      </div>
-      <div class="thumbnail">
-        <b>6</b>
-        <img src="../../assets/storyboard-6.png" alt="">
-
-      </div>
-      <div class="thumbnail">
-        <b>7</b>
-        <img src="../../assets/storyboard-7.png" alt="">
-
-      </div>
+      <div class="thumbnail"></div>
     </div>
     <div class="next-chapter">
       <i class="fas fa-angle-double-right"></i>
