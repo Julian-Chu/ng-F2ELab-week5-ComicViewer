@@ -8,8 +8,14 @@ import { Component, OnInit } from "@angular/core";
 })
 export class ChapterComponent implements OnInit {
   pages: Page[];
+  currentPage: Page;
   ngOnInit(): void {}
   constructor(pagesService: PagesService) {
     this.pages = pagesService.getPages();
+    this.currentPage = this.pages[0];
+  }
+
+  public isCurrentPage(): Boolean {
+    return true;
   }
 }

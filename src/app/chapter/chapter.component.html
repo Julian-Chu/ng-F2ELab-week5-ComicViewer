@@ -62,22 +62,15 @@
 
     <div class="thumbnails">
       <div class="thumbnail"></div>
-
-      <div class="thumbnail current-page">
-
-        <i lass="fas fa-sort-up"></i>
-
-        <img src="../../assets/storyboard-1.png" alt="">
-      </div>
-      <div *ngFor="let page of pages; let i=index" class="thumbnail">
-        <b>{{page.pageNumber}}</b>
-        <img src='{{page.pageImageLink}}' alt="">
-      </div>
+      <ng-container *ngFor="let page of pages; let i=index">
+        <div class="thumbnail" [ngClass]="{'current-page': page.pageNumber === currentPage.pageNumber}">
+          <b *ngIf="page.pageNumber !== currentPage.pageNumber">{{page.pageNumber}}</b>
+          <img src='{{page.pageImageLink}}' alt="">
+        </div>
+      </ng-container>
       <div class="thumbnail"></div>
     </div>
     <div class="next-chapter">
       <i class="fas fa-angle-double-right"></i>
     </div>
   </div>
-
-</div>
