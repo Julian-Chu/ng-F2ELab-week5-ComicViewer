@@ -29,6 +29,10 @@ export class ChapterComponent implements OnInit {
     this.currentPageNo -= 1;
   }
 
+  jumpToPage(pageNo: number) {
+    this.currentPageNo = pageNo;
+  }
+
   onChange(el: HTMLSelectElement) {
     this.currentPageNo = parseInt(el.value, 10);
   }
